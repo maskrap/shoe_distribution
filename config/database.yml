@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: distribution_development
+
+test:
+  adapter: postgresql
+  database: distribution_test
