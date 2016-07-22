@@ -12,7 +12,7 @@
 
   <h3>Add Brands from distribution database</h3>
   <% if @brands.any? %>
-    <form action="/stores/<% @store.id %>/brand" method='post'>
+    <form action="/stores/<%= @store.id %>/brand" method="post">
       <input id="store_id" name="store_id" type="hidden" value="<%= @store.id() %>">
       <label for="brand_id">Select a Brand</label>
         <select id='brand_id' name='brand_id' type='text'>

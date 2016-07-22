@@ -53,10 +53,9 @@ end
 post '/stores/:id/brand' do
   store_id = params["store_id"].to_i
   brand_id = params["brand_id"].to_i
-  brand = Brand.find(brand_id)
+  @brand = Brand.find(brand_id)
   @store = Store.find(store_id)
-  @store.brands.push(brand)
-  # @brands = Brand.all
+  @store.brands.push(@brand)
   redirect "/stores/#{@store.id}"
 end
 
