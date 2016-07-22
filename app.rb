@@ -73,3 +73,11 @@ delete '/stores/:id' do
   @brands.each { |brand| brand.stores.destroy(@store) }
   redirect '/stores'
 end
+
+patch '/stores/:id' do
+  @store = Store.find(params["id"].to_i)
+  name = params['new_name']
+  @store.update({name: name})
+  @brands = Brand.all
+  erb :store
+end
