@@ -53,8 +53,8 @@ describe 'the store tracker path', type: :feature do
     test_brand = Brand.new({:name => "name"})
     test_brand.save
     visit '/brands'
-    fill_in('name', {:with => "Nike"})
+    fill_in 'name', {:with => "Nike"}
     click_button 'Add Brand'
-    expect(page).to have_content(test_brand.name())
+    expect(page).to have_content test_brand.name
   end
 end
