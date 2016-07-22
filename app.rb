@@ -23,7 +23,11 @@ get '/brands' do
 end
 
 post '/stores/new' do
-
+  name = params['name']
+  @store = Store.create({name: name})
+  @brands = Brand.all
+  @stores = Store.all
+  @brands = Brand.all
   redirect '/stores'
 end
 
