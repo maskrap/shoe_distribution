@@ -1,0 +1,23 @@
+<div class="main">
+  <h1>Stores</h1>
+
+  <% if @stores.any? %>
+    <ul>
+      <% @stores.each { |store| %>
+        <li><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
+      <% } %>
+    </ul>
+  <% else %>
+    <p>There are currently no shoe stores, thanks Amazon!<p>
+  <% end %>
+
+  <form action="/stores/new" method="post">
+    <label for="name">Store name</label>
+    <input id="name" name="name" type="text">
+    <br>
+    <button type="submit">Add Store</button>
+  </form>
+
+  <hr>
+  <span class="navigation"><a href="/">Home</a></span>
+</div>

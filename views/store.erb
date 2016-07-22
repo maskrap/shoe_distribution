@@ -1,0 +1,36 @@
+<div class="main">
+  <h1><%= @store.name %></h1>
+
+  <h3>Brands:</h3>
+  <% if @store.brands.any? %>
+    <ul>
+      <% @store.brands.each { |variable| %>
+        <li></a href="/brands/<%= brand.id %>"><%= variable.name %></a></li>
+      <% } %>
+    </ul>
+  <% end %>
+
+  <h3>Add Brands from distribution database</h3>
+  <% if @brands.any? %>
+    <form action="/stores/<% @store.id %>/brand" method='post'>
+      <input id="store_id" name="store_id" type="hidden" value="<%= @store.id() %>">
+      <label for="brand_id">Select a Brand</label>
+        <select id='brand_id' name='brand_id' type='text'>
+          <% @brands.each { |brand| %>
+            <option value="<%= brand.id %>"> <%= brand.name %></option>
+          <% } %>
+        </select>
+      <button type="submit">Add</button>
+    </form>
+  <% end %>
+
+  <h3>Add new Brand</h3>
+  <form action="/stores/<%= @store.id %>/brand/new" method="post">
+    <label for="name">Tag name</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Add</button>
+  </form>
+
+  <hr>
+  <span class="navigation"><a href="/">return home</a></span>
+</div>
