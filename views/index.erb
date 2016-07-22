@@ -1,10 +1,70 @@
 <div class="main">
-  <h1>Your Shoe Distribution Web App</h1>
-  <br>
-  <span class="main-nav">
-    <a href="/stores">View all stores</a>
-    <br>
-    <a href="/brands">View all brands</a>
-    <br>
-  </span>
+  <h1>Shoe Tracker</h1>
+  <h4>Your personal shoe tracking app</h4>
+  <hr>
+
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          View Stores
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <h4>Stores</h4>
+
+        <% if @stores.any? %>
+          <ul>
+            <% @stores.each { |store| %>
+              <li><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
+            <% } %>
+          </ul>
+        <% else %>
+          <p>There are currently no shoe stores, thanks Amazon!<p>
+        <% end %>
+
+        <form action="/stores/new" method="post">
+          <label for="name">Store name</label>
+          <input id="name" name="name" type="text">
+          <br>
+          <button type="submit">Add Store</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          View Brands
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <h4>Brands</h4>
+
+        <% if @brands.any? %>
+          <ul>
+            <% @brands.each { |brand| %>
+              <li><a href="/brands/<%= brand.id %>"><%= brand.name %></a></li>
+            <% } %>
+          </ul>
+        <% else %>
+          <p>There are currently no brands<p>
+        <% end %>
+
+        <form action="/brands/new" method="post">
+          <label for="name">Shoe brand</label>
+          <input id="name" name="name" type="text">
+          <button type="submit">Add brand</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<span class="footer">© 2016 Epicodus - Sam Park. ALL RIGHTS RESERVED.  </span>

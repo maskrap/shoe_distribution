@@ -1,0 +1,25 @@
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color:  #9494b8;
+}
+
+li {
+  list-style: none;
+}
+
+.footer {
+  position:fixed;
+   left:40%;
+   bottom:0px;
+   height:30px;
+   width:100%;
+}
+
+h1, h4  {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.main, .panel {
+  font-family: 'Josefin Sans', sans-serif;
+}
