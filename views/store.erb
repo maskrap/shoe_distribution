@@ -4,8 +4,8 @@
   <h3>Brands:</h3>
   <% if @store.brands.any? %>
     <ul>
-      <% @store.brands.each { |variable| %>
-        <li></a href="/brands/<%= brand.id %>"><%= variable.name %></a></li>
+      <% @store.brands.each { |brand| %>
+        <li></a href="/brands/<%= brand.id %>"><%= brand.name %></a></li>
       <% } %>
     </ul>
   <% end %>
@@ -26,11 +26,11 @@
 
   <h3>Add new Brand</h3>
   <form action="/stores/<%= @store.id %>/brand/new" method="post">
-    <label for="name">Tag name</label>
+    <label for="name">Brand name</label>
     <input id="name" name="name" type="text">
     <button type="submit">Add</button>
   </form>
 
   <hr>
-  <span class="navigation"><a href="/">return home</a></span>
+  <span class="navigation"><a href="/">Home</a></span>
 </div>

@@ -20,6 +20,8 @@ end
 post '/stores/new' do
   name = params['name']
   @store = Store.create({name: name})
+  binding.pry
+
   @brands = Brand.all
   redirect '/stores'
 end
@@ -40,4 +42,28 @@ get '/brands/:id' do
   @brand = Brand.find(params["id"].to_i)
   @stores = Store.all
   erb :brand
+end
+
+get '/stores/:id' do
+  @store = Store.find(params["id"].to_i)
+  @brands = Brand.all
+  erb :store
+end
+
+post '/stores/:id/brand' do
+  store_id = params["store_id"].to_i
+  brand_id = params["brand_id"].to_i
+  brand = Brand.find(brand_id)
+  @store = Store.find(store_id)
+  @store.brands.push(brand)
+  # @brands = Brand.all
+  redirect "/stores/#{@store.id}"
+end
+
+post '/stores/:id/brand/new' do
+  @store = Store.find(params["id"].to_i)
+  name = params["name"]
+  brand = Brand.create({name: name})
+  @store.brands.push(brand)
+  redirect "/stores/#{@store.id}"
 end

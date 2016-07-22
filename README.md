@@ -1,6 +1,6 @@
 # _Recipe Box_
 
-#### By Sam Park**
+#### **By Sam Park**
 
 ## Objectives
 

@@ -3,8 +3,8 @@
 
   <% if @brand.stores.any? %>
     <ul>
-      <% @brand.stores.each { |variable| %>
-        <li><a href="stores/<%= store.id %>"><%= variable.name %></a></li>
+      <% @brand.stores.each { |store| %>
+        <li><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
       <% } %>
     </ul>
   <% end %>
